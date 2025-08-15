@@ -10,7 +10,7 @@ const booksApi = createApi({
       if (token) {
         headers.set('authorization', `Bearer ${token}`);
       }
-      return headers;
+      return headers; 
     },
   }),
   tagTypes: ['Book'],

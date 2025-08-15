@@ -1,6 +1,6 @@
 import React from 'react'
 import {FiShoppingCart} from 'react-icons/fi'
-import { getImgUrl } from '../../utils/getimgurl';
+import { getImgUrl, getAssetImgUrl } from '../../utils/getimgurl';
 import { Link } from 'react-router-dom';
 
 import { useDispatch } from 'react-redux';
@@ -23,7 +23,7 @@ const BookCard = ({book}) => {
         <img
           src={`${getImgUrl(book ?.coverImage)}`}
           alt=""
-          
+          onError={(e) => { e.target.src = getAssetImgUrl(book?.coverImage) }}
           className="w-full bg-cover p-2 rounded-md cursor-pointer hover:scale-105 transition-all duration-200"/>
       </Link> 
     </div>
@@ -35,8 +35,6 @@ const BookCard = ({book}) => {
         </h3>
         </Link>  
 
-      {/* <p className="text-gray-600 mb-5">
-      {book.description.length > 80 ? `${book ?.description.slice(0, 80)}...`:book ?.description }</p> */}
       <p className="text-gray-600 mb-5">
   {book?.description
     ? book.description.length > 80
@@ -46,7 +44,7 @@ const BookCard = ({book}) => {
 </p>
       
       <p className="font-medium mb-5">
-        {book ?.newPrice} <span className="line-through font-normal ml-2">{book ?.oldPrice}</span>
+        ${book ?.newPrice} <span className="line-through font-normal ml-2">${book ?.oldPrice}</span>
       </p> 
       <button 
       onClick={() => handleAddToCart(book)}
@@ -60,49 +58,154 @@ const BookCard = ({book}) => {
   )
 }
 
-export default BookCard;
+export default BookCard; 
 
 
 
 
 
 
-// import React, { useEffect, useState } from 'react';
-// import { FiShoppingCart } from 'react-icons/fi';
+// import React from 'react'
+// import {FiShoppingCart} from 'react-icons/fi'
+// import { getImgUrl, getAssetImgUrl } from '../../utils/getimgurl';
 // import { Link } from 'react-router-dom';
+
+// import { useDispatch } from 'react-redux';
+// import { addTocart } from '../../redux/features/cart/cartSlice'; 
+
+// const BookCard = ({book}) => {
+//     const dispatch = useDispatch();
+      
+//     const handleAddToCart = (product) => {
+//       dispatch(addTocart(product))
+//      }
+
+//   return (
+//     <div className=" rounded-lg transition-shadow duration-300">
+//   <div
+//     className="flex flex-col sm:flex-row sm:items-center sm:h-72  sm:justify-center gap-4"
+//   >
+//     <div className="sm:h-72 sm:flex-shrink-0 border rounded-md">
+//       <Link  to={`/books/${book ?._id}`}>
+//         <img
+//           src={`${getImgUrl(book ?.coverImage)}`}
+//           alt=""
+//           onError={(e) => { e.target.src = getAssetImgUrl(book?.coverImage) }}
+//           className="w-full bg-cover p-2 rounded-md cursor-pointer hover:scale-105 transition-all duration-200"/>
+//       </Link> 
+//     </div>
+//     <div>
+        
+//     <Link to={`/books/${book ?._id}`}
+//         ><h3 className="text-xl font-semibold hover:text-blue-600 mb-3">
+//          {book ?.title}
+//         </h3>
+//         </Link>  
+
+//       <p className="text-gray-600 mb-5">
+//   {book?.description
+//     ? book.description.length > 80
+//       ? `${book.description.slice(0, 80)}...`
+//       : book.description
+//     : "No description available"}
+// </p>
+      
+//       <p className="font-medium mb-5">
+//         {book ?.newPrice} <span className="line-through font-normal ml-2">{book ?.oldPrice}</span>
+//       </p> 
+//       <button 
+//       onClick={() => handleAddToCart(book)}
+//       className="btn-primary px-6 space-x-1 flex items-center gap-1 "> 
+//         <FiShoppingCart className="" />
+//         <span>Add to Cart</span>
+//       </button>
+//     </div>
+//   </div>
+// </div>
+//   )
+// }
+
+// export default BookCard;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// import React from 'react'
+// import {FiShoppingCart} from 'react-icons/fi'
+// import { getImgUrl } from '../../utils/getimgurl';
+// import { Link } from 'react-router-dom';
+
 // import { useDispatch } from 'react-redux';
 // import { addTocart } from '../../redux/features/cart/cartSlice';
 
-// const BookCard = ({ book }) => {
-//   const dispatch = useDispatch();
-//   const [imageUrl, setImageUrl] = useState('');
-
-//   // Fetch full image path when `book.picture` changes
-//   useEffect(() => {
-//     if (book?.picture) {
-//       setImageUrl(`http://localhost:5000/uploads/${book.picture}`);
-//     }
-//   }, [book]);
-
-//   const handleAddToCart = (product) => {
-//     dispatch(addTocart(product));
-//   };
+// const BookCard = ({book}) => {
+//     const dispatch = useDispatch();
+      
+//     const handleAddToCart = (product) => {
+//       dispatch(addTocart(product))
+//      }
 
 //   return (
-//     <div className="book-card">
-//       {imageUrl ? (
-//         <img src={imageUrl} alt={book.title} className="book-image" />
-//       ) : (
-//         <p>Loading image...</p>
-//       )}
-//       <h3>{book.title}</h3>
-//       <p>{book.author}</p>
-//       <button onClick={() => handleAddToCart(book)}>
-//         <FiShoppingCart /> Add to Cart
-//       </button>
-//       <Link to={`/book/${book._id}`}>View Details</Link>
+//     <div className=" rounded-lg transition-shadow duration-300">
+//   <div
+//     className="flex flex-col sm:flex-row sm:items-center sm:h-72  sm:justify-center gap-4"
+//   >
+//     <div className="sm:h-72 sm:flex-shrink-0 border rounded-md">
+//       <Link  to={`/books/${book ?._id}`}>
+//         <img
+//           src={`${getImgUrl(book ?.coverImage)}`}
+//           alt=""
+          
+//           className="w-full bg-cover p-2 rounded-md cursor-pointer hover:scale-105 transition-all duration-200"/>
+//       </Link> 
 //     </div>
-//   );
-// };
+//     <div>
+        
+//     <Link to={`/books/${book ?._id}`}
+//         ><h3 className="text-xl font-semibold hover:text-blue-600 mb-3">
+//          {book ?.title}
+//         </h3>
+//         </Link>  
+
+//       {/* <p className="text-gray-600 mb-5">
+//       {book.description.length > 80 ? `${book ?.description.slice(0, 80)}...`:book ?.description }</p> */}
+//       <p className="text-gray-600 mb-5">
+//   {book?.description
+//     ? book.description.length > 80
+//       ? `${book.description.slice(0, 80)}...`
+//       : book.description
+//     : "No description available"}
+// </p>
+      
+//       <p className="font-medium mb-5">
+//         {book ?.newPrice} <span className="line-through font-normal ml-2">{book ?.oldPrice}</span>
+//       </p> 
+//       <button 
+//       onClick={() => handleAddToCart(book)}
+//       className="btn-primary px-6 space-x-1 flex items-center gap-1 "> 
+//         <FiShoppingCart className="" />
+//         <span>Add to Cart</span>
+//       </button>
+//     </div>
+//   </div>
+// </div>
+//   )
+// }
 
 // export default BookCard;
+
+
+

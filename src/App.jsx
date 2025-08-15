@@ -113,3 +113,12 @@ export default App;
 
 // https://github.com/mdalmamunit427/build-full-stack-book-store-mern-app
 // https://github.com/mdalmamunit427/book-store-app-ui-assets
+
+
+// echo "a book-store-app-frontend" >> README.md
+// git init
+// git add .
+// git commit -m "First comit"
+// git branch -M main
+// git remote add origin https://github.com/AdenijiAbraham/book-store-app.git
+// git push -u origin main
