@@ -1,5 +1,5 @@
 import React from 'react'
-import footerLogo  from "../assets/footer-logo.png"
+import footerlogo  from "../assets/footerlogo.png" 
 
 import { FaFacebook, FaInstagram, FaTwitter } from "react-icons/fa"
 
@@ -10,7 +10,7 @@ const Footer = () => {
       <div className="container mx-auto flex flex-col md:flex-row justify-between items-center gap-8">
         {/* Left Side - Logo and Nav */}
         <div className="md:w-1/2 w-full">
-          <img src={footerLogo} alt="Logo" className="mb-5 w-36" />
+          <img src={footerlogo} alt="Logo" className="mb-5 w-36" />
           <ul className="flex flex-col md:flex-row gap-4">
             <li><a href="#home" className="hover:text-primary">Home</a></li>
             <li><a href="#services" className="hover:text-primary">Services</a></li>
