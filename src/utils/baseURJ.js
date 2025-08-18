@@ -1,5 +1,5 @@
 const getBaseUrl = () => {
-    return "http://localhost:5000"
+    return "https://book-store-app-backend-bcv9i76xe-abraham-adenijs-projects.vercel.app"
 }
 
 

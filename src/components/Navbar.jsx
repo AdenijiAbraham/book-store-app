@@ -5,7 +5,7 @@ import { HiOutlineUser } from "react-icons/hi";
 import { AiOutlineHeart } from "react-icons/ai";
 import { HiOutlineShoppingCart } from "react-icons/hi";
 
-// Removed avatar import - using placeholder instead
+import avatar from "../assets/avatar.png";
 import  { useState } from "react"
 import { useSelector } from 'react-redux';
 import { useAuth } from '../context/Auth.Context';
@@ -52,10 +52,7 @@ const Navbar = () => {
               {
                   currentUser ? <> 
                  <button onClick={()  => setIsDropdownOpen (!isDropdownOpen)} >
-                    {/* Using placeholder avatar instead of imported image */}
-                    <div className={`size-7 rounded-full bg-gray-300 flex items-center justify-center ${currentUser ? 'ring-2 ring-blue-500' : ''}`}>
-                      <HiOutlineUser className="size-4 text-gray-600" />
-                    </div>
+                    <img src={avatar} alt="" className={`size-7 rounded-full $ {currentuser ? 'ring-2 ring-blue-500' : '' }`} />
                   </button> 
                   {/*to show dropdown*/}
                   {
@@ -110,11 +107,6 @@ const Navbar = () => {
 }
 
 export default Navbar;
-
-
-  
-
-
 
 
 
@@ -175,7 +167,10 @@ export default Navbar;
 //               {
 //                   currentUser ? <> 
 //                  <button onClick={()  => setIsDropdownOpen (!isDropdownOpen)} >
-//                     <img src={avatar} alt="" className={`size-7 rounded-full $ {currentuser ? 'ring-2 ring-blue-500' : '' }`} />
+//                     {/* Using placeholder avatar instead of imported image */}
+//                     <div className={`size-7 rounded-full bg-gray-300 flex items-center justify-center ${currentUser ? 'ring-2 ring-blue-500' : ''}`}>
+//                       <HiOutlineUser className="size-4 text-gray-600" />
+//                     </div>
 //                   </button> 
 //                   {/*to show dropdown*/}
 //                   {
@@ -230,6 +225,14 @@ export default Navbar;
 // }
 
 // export default Navbar;
+
+
+  
+
+
+
+
+
 
 
 // import { Link } from 'react-router-dom';
@@ -337,3 +340,4 @@ export default Navbar;
 // };
 
 // export default Navbar;
+
