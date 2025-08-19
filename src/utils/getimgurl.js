@@ -13,7 +13,7 @@ function getAssetImgUrl(name) {
 // Function to get image URL from backend
 function getBackendImgUrl(name) {
   if (!name) return '/placeholder-book.jpg';
-  return `http://localhost:5000/uploads/${name}`;
+  return `https://book-store-app-backend-six.vercel.app/uploads/${name}`;
 }
 
 // Main function - returns backend URL (string, not object)
